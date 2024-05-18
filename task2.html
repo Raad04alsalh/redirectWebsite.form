@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Webiste Name</title>
+    <link rel="stylesheet" href="task2.css">
+</head>
+<body>
+    <div class="container">
+        <form id="webiste-form">
+            <label for="website-name">Enter the name of website </label>
+            <input type="text" id="website-name" name="website-name" required><br><br>
+            <button type="button" onclick="redirectToWebsite()">Go</button>
+            <p id="error-message"></p>
+
+        </form>
+
+    </div>
+</body>
+<script>
+function redirectToWebsite(){
+    var userInput = document.getElementById('website-name').value.toLowerCase().trim();
+    var url;
+    const validwebsites = {
+      meu: 'https://www.meu.edu.jo',
+      google: 'https://www.google.com',
+      bing: 'https://www.bing.com',
+      amman: 'https://www.amman.jo'
+    };
+    if(validwebsites[userInput]){
+        window.location.href = validwebsites[userInput];
+    }else{
+        alert('invalid website name. Please enter a valid website.');
+    }
+    // if(userInput === 'meu'){
+    //      url = `https://www.meu`;
+    // }else{
+    //     url = `https://www.${userInput}`;
+    // }
+    // if(url !== window.location.href){
+    //     window.location.href = url;
+    // }
+}
+</script>
+</html>
